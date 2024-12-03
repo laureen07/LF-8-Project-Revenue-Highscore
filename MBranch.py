@@ -40,9 +40,12 @@ def init_stores():
             cur_branch = Branch()
             cur_branch.revenue = cur_revenues[i]
             cur_branch.day = cur_days[i]
-            if store.revenue_url == url_a:
-                list_store_a.append(cur_branch)
-            elif store.revenue_url == url_b:
-                list_store_b.append(cur_branch)
-            elif store.revenue_url == url_c:
-                list_store_c.append(cur_branch)
+            decide_list(store.revenue_url, cur_branch)
+
+def decide_list(string, branch):
+    if string == url_a:
+        list_store_a.append(branch)
+    elif string == url_b:
+        list_store_b.append(branch)
+    elif string == url_c:
+        list_store_c.append(branch)

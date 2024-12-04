@@ -18,7 +18,7 @@ def config_list_revenue(revenue):
     cur_list = []
     for value in revenue:
         cur_list.append(float((value.replace('.', '').replace(',', '.').replace('€', ''))))
-    return cur_list
+    return cur_list #gibt eine Formatierte liste zurück
 
 def init_stores():
     csv = CSV()
@@ -42,10 +42,10 @@ def init_stores():
             cur_branch.day = cur_days[i]
             decide_list(store.revenue_url, cur_branch)
 
-def decide_list(string, branch):
-    if string == url_a:
+def decide_list(url, branch):
+    if url == url_a:
         list_store_a.append(branch)
-    elif string == url_b:
+    elif url == url_b:
         list_store_b.append(branch)
-    elif string == url_c:
+    elif url == url_c:
         list_store_c.append(branch)

@@ -1,6 +1,6 @@
 import MBranch
-
 MBranch.init_stores()
+
 print("\r\nStore A")
 for day in MBranch.list_store_a:
     print(day.day)

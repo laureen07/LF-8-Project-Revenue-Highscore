@@ -1,8 +1,9 @@
 from MCSV import CSV
+import glob
 
-url_a = 'Filiale_A.csv'
-url_b = 'Filiale_B.csv'
-url_c = 'Filiale_C.csv'
+url_a = 'Umsätze/Filiale_A.csv'
+url_b = 'Umsätze/Filiale_B.csv'
+url_c = 'Umsätze/Filiale_C.csv'
 
 class Branch:
     def __init__(self):
@@ -13,6 +14,7 @@ class Branch:
 list_store_a = []
 list_store_b = []
 list_store_c = []
+stores = []
 
 def config_list_revenue(revenue):
     cur_list = []
@@ -29,7 +31,10 @@ def init_stores():
     store_b.revenue_url = url_b
     store_c = Branch()
     store_c.revenue_url = url_c
-    stores = [store_a, store_b, store_c]
+    stores.append(store_a)
+    stores.append(store_b)
+    stores.append(store_c)
+
 
     for store in stores:
         data = csv.read_csv(store.revenue_url)

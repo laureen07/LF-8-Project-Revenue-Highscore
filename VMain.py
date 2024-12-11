@@ -1,33 +1,26 @@
+import VMMain as vm
 import tkinter
 from tkinter import *
 import tkinter.messagebox as msg
 import numpy as np
+import VHellGui
 
 main = tkinter.Tk()
+login_window = Toplevel(main)
+
 def config_main_window():
     #main.overrideredirect(True)
+    main.withdraw() #blendet das main window aus
     main.geometry('1000x800')
 
-
-def create_heart():
-    # Anzahl der Fenster
-    n_windows = 60
-    # Herzform-Koordinaten
-    t = np.linspace(0, 2 * np.pi, n_windows)
-    x = 16 * np.sin(t)**3
-    y = 13 * np.cos(t) - 5 * np.cos(2 * t) - 2 * np.cos(3 * t) - np.cos(4 * t)
-
-    # Koordinaten skalieren, um auf den Bildschirm zu passen
-    x_scaled = (x * 25) + 650  # Verschiebung und Skalierung in x-Richtung
-    y_scaled = (y * -25) + 300  # Verschiebung und Skalierung in y-Richtung (invertiert)
-
-    for i in range(0,0): #60
-            a = Toplevel()
-            a.title('Fehler')
-            a.configure(background='red')
-            a.geometry(f"250x150+{int(x_scaled[i])}+{int(y_scaled[i])}")
-            label = tkinter.Label(a)
-            label.pack(expand=True)
+def open_login_window():
+    login_window.lower()
+    login_window.title("Login")
+    login_window.geometry("300x150")
+    login_window.configure(background="lightblue")
+    tkinter.Label(login_window, text="Geben Sie Ihren Namen ein:", bg="lightblue").pack(pady=10)
+    name_entry = tkinter.Entry(login_window, width=25)
+    name_entry.pack(pady=5)
 
 
 
@@ -35,7 +28,9 @@ def create_heart():
 
 
 config_main_window()
-create_heart()
+open_login_window()
+
+VHellGui.create_heart()
 
 main.mainloop()
 

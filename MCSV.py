@@ -5,5 +5,8 @@ class CSV:
     def read_csv(self, url):
         with open(url) as file:
             csv_data = csv.reader(file, delimiter=';')
-            print(glob.glob('Umsätze/*.csv'))
             return list(csv_data)
+
+    def get_all_data(self, url):
+        list_url = glob.glob(url)
+        return list_url

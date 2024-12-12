@@ -36,6 +36,8 @@ def open_login_window():
     login_button = tk.Button(login_window, text="Anmelden", command=check_name_input)
     login_button.pack(pady=10)
 
+def btnClose_click():
+    main.destroy()
 
 
 def start_gui():
@@ -48,4 +50,27 @@ def start_gui():
     console_thread.start()
 
     main.mainloop()
+
+btnClose = tk.Button(main, text="Beenden", command=btnClose_click)
+btnClose.place(x=1200, y=700)
+lblFilialieA = tk.Label (main, text="Filialie A:")
+lblFilialieA.place(x=50, y=150)
+lblFilialieB = tk.Label (main, text="Filialie B:")
+lblFilialieB.place(x=50, y=350)
+lblFilialieC = tk.Label (main, text="Filialie C:")
+lblFilialieC.place(x=50, y=550)
+lblMonday = tk.Label (main, text="Montag:")
+lblMonday.place(x=150, y=50)
+lblTuesday = tk.Label (main, text="Dienstag:")
+lblTuesday.place(x=350, y=50)
+lblWednesday = tk.Label (main, text="Mittwoch:")
+lblWednesday.place(x=550, y=50)
+lblThursday = tk.Label (main, text="Donnerstag:")
+lblThursday.place(x=750, y=50)
+lblFriday = tk.Label (main, text="Freitag:")
+lblFriday.place(x=950, y=50)
+lblSaturday = tk.Label (main, text="Samstag:")
+lblSaturday.place(x=1150, y=50)
+#lblInhalt = tk.Entry(main)
+#lblInhalt.place(x=200, y=150)
 start_gui()

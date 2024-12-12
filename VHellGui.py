@@ -1,5 +1,6 @@
 from tkinter import *
 import numpy as np
+import pygame
 
 def create_heart():
     # Anzahl der Fenster
@@ -15,7 +16,11 @@ def create_heart():
 
     for i in range(0,60): #60
             a = Toplevel()
-            a.overrideredirect(True)
             a.title('Merry X-Mas')
             a.configure(background='red')
             a.geometry(f"250x150+{int(x_scaled[i])}+{int(y_scaled[i])}")
+
+def play_song():
+    pygame.mixer.init()
+    pygame.mixer.music.load('Songs/WeihnachtsSong1.mp3')
+    pygame.mixer.music.play()
